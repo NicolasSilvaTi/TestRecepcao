@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Apresentação</title>
+
+  <!-- Carrega a biblioteca de slides Reveal.js via CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css">
+
+  <style>
+    /* Estilo para ajustar imagens dentro dos slides */
+    .reveal img {
+      max-width: 90%;
+      max-height: 80vh;
+      object-fit: contain;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- SLIDE 1 -->
+      <section>
+        <h2>Título da Apresentação</h2>
+        <p>Subtítulo ou mensagem inicial</p>
+      </section>
+
+      <!-- SLIDE 2 (Exemplo com Imagem) -->
+      <section>
+        <h2>Slide com Imagem</h2>
+        <!-- Substitua o link abaixo pela URL da sua imagem ou caminho local -->
+        <img src="https://via.placeholder.com/800x450" alt="Imagem do Slide">
+      </section>
+
+      <!-- SLIDE 3 -->
+      <section>
+        <h2>Conclusão</h2>
+        <p>Obrigado pela atenção!</p>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Scripts do Reveal.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+  <script>
+    Reveal.initialize({
+      // Ativa a transição automática entre slides
+      autoSlide: 5000, // Tempo em milissegundos (5000ms = 5 segundos por slide)
+
+      // Permite repetição contínua (looping)
+      loop: true,
+
+      // Mostra controles de navegação (setas)
+      controls: true,
+
+      // Mostra a barra de progresso no rodapé
+      progress: true,
+
+      // Tipo de transição visual ('slide', 'fade', 'convex', 'concave', 'zoom')
+      transition: 'slide'
+    });
+  </script>
+</body>
+</html>
