@@ -5,31 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minha Apresentação</title>
 
-  <!-- Carrega a biblioteca de slides Reveal.js via CDN -->
+  <!-- Reveal.js CSS (Slides) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css">
 
   <style>
-    /* Força a área da apresentação e slides a ocupar 100% da tela */
-    html, body, .reveal, .slides, section {
-      width: 100% !important;
-      height: 100% !important;
-      padding: 0 !important;
-      margin: 0 !important;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    /* Faz as imagens preencherem toda a largura e altura da tela */
-    .reveal section img {
-      width: 100vw !important;
-      height: 100vh !important;
-      max-width: 100vw !important;
-      max-height: 100vh !important;
-      object-fit: contain; /* Ajusta a imagem proporcionalmente à tela */
-      margin: 0 !important;
-      border: none !important;
-      box-shadow: none !important;
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+    }
 
-      /* Área dos Slides (ocupa a tela menos a altura da barra inferior) */
+    /* Área dos Slides (ajustada para não sobrepor a barra inferior) */
     .reveal {
       width: 100vw !important;
       height: calc(100vh - 70px) !important;
@@ -68,7 +63,7 @@
       object-fit: contain;
     }
 
-    /* 2. Barra de Notícias (Passando Notícias Manuais) */
+    /* 2. Barra de Notícias Manuais */
     .barra-noticias {
       flex: 1;
       overflow: hidden;
@@ -94,7 +89,6 @@
       100% { transform: translate(-100%, 0); }
     }
 
-    /* Separador entre notícias */
     .texto-noticias span {
       margin: 0 25px;
       color: #00a8ff;
@@ -127,13 +121,20 @@
     #relogio-hora {
       font-size: 1.2rem;
       color: #ffffff;
-      <!-- APRESENTAÇÃO DE SLIDES -->
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ÁREA DOS SLIDES -->
   <div class="reveal">
     <div class="slides">
 
-      <!-- SLIDES COM SUAS IMAGENS -->
-      <section><img src="Slide1.PNG" alt="Slide 1"></section>
-      <section><img src="Slide2.PNG" alt="Slide 2"></section>
+      <section><img src="slide1.png" alt="Slide 1"></section>
+      <section><img src="slide2.png" alt="Slide 2"></section>
+      <section><img src="slide3.png" alt="Slide 3"></section>
+      <section><img src="slide4.png" alt="Slide 4"></section>
+      <section><img src="slide5.png" alt="Slide 5"></section>
 
     </div>
   </div>
@@ -146,7 +147,7 @@
       <img src="https://d24d7vsshzrslo.cloudfront.net/sites/school10/files/2022-09/logo_escola_eleva.png" alt="Logo Colégio">
     </div>
 
-    <!-- NOTÍCIAS MANUAIS (Edite o texto abaixo para alterar as notícias) -->
+    <!-- NOTÍCIAS MANUAIS -->
     <div class="barra-noticias">
       <div class="texto-noticias">
         <span>●</span> Bem-vindos ao ano letivo!
@@ -156,7 +157,7 @@
       </div>
     </div>
 
-    <!-- WIDGET CLIMATEMPO (Iframe compacto) -->
+    <!-- WIDGET CLIMATEMPO -->
     <div class="barra-clima">
       <iframe 
         src="https://www.climatempo.com.br/widget/acessar/titulo/previsao/id/350/cor/azul" 
@@ -168,7 +169,7 @@
       </iframe>
     </div>
 
-    <!-- DATA E HERA EM TEMPO REAL -->
+    <!-- DATA E HORA -->
     <div class="barra-relogio">
       <span id="relogio-hora">00:00:00</span>
       <span id="relogio-data">00/00/0000</span>
@@ -187,14 +188,14 @@
       margin: 0,
       minScale: 1,
       maxScale: 1,
-      autoSlide: 5000,
+      autoSlide: 10000, // 10 segundos por slide
       loop: true,
       controls: false,
       progress: false,
-      transition: 'fade'
+      transition: 'slide'
     });
 
-    // Script para atualizar Relógio e Data em Tempo Real
+    // Atualização do Relógio e Data em tempo real
     function atualizarRelogio() {
       const agora = new Date();
       
@@ -213,67 +214,6 @@
     setInterval(atualizarRelogio, 1000);
     atualizarRelogio();
   </script>
-    }
-  </style>
-</head>
-<body>
 
-  <div class="reveal">
-    <div class="slides">
-
-     <!-- SLIDE 1 -->
-    <section>
-      <img src="slide1.png" alt="Slide 1">
-    </section>
-
-    <!-- SLIDE 2 -->
-    <section>
-      <img src="slide2.png" alt="Slide 2">
-    </section>
-
-    <!-- SLIDE 3 -->
-    <section>
-      <img src="slide3.png" alt="Slide 3">
-    </section>
-
-         <!-- SLIDE 4 -->
-    <section>
-      <img src="slide4.png" alt="Slide 4">
-    </section>
-
-         <!-- SLIDE 5 -->
-    <section>
-      <img src="slide5.png" alt="Slide 5">
-    </section>
-
-    </div>
-  </div>
-
-  <!-- Scripts do Reveal.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
-  <script>
-    Reveal.initialize({
-      // Configurações de dimensão para tela cheia
-      width: "100%",
-      height: "100%",
-      margin: 0,
-      minScale: 1,
-      maxScale: 1,
-      // Ativa a transição automática entre slides
-      autoSlide: 10000, // Tempo em milissegundos (10000ms = 10 segundos por slide)
-
-      // Permite repetição contínua (looping)
-      loop: true,
-
-      // Mostra controles de navegação (setas)
-      controls: false,
-
-      // Mostra a barra de progresso no rodapé
-      progress: false,
-
-      // Tipo de transição visual ('slide', 'fade', 'convex', 'concave', 'zoom')
-      transition: 'slide'
-    });
-  </script>
 </body>
 </html>
