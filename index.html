@@ -3,9 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minha Apresentação</title>
+  <title>Apresentação Recepção</title>
 
-  <!-- Reveal.js CSS (Slides) -->
+  <!-- Fonte Montserrat (idêntica à do layout) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+  <!-- Reveal.js CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css">
 
@@ -20,19 +25,19 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background-color: #000;
     }
 
     /* Área dos Slides */
     .reveal {
       width: 100vw !important;
-      height: calc(100vh - 70px) !important;
+      height: calc(100vh - 85px) !important;
     }
 
     .reveal section img {
       width: 100vw !important;
-      height: calc(100vh - 70px) !important;
+      height: calc(100vh - 85px) !important;
       object-fit: contain;
       border: none !important;
       box-shadow: none !important;
@@ -44,114 +49,120 @@
       bottom: 0;
       left: 0;
       width: 100vw;
-      height: 70px;
+      height: 85px;
       background-color: #f7941d;
       color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: space-between;
       z-index: 9999;
-      padding: 0 15px;
-      gap: 15px;
+      padding: 0 25px;
+      gap: 20px;
     }
 
-    /* 1. Logo do Colégio com fundo branco quadrado e bordas arredondadas */
+    /* 1. Logo do Colégio com Fundo Branco Arredondado */
     .barra-logo {
       background-color: #ffffff;
-      padding: 6px 12px;
-      border-radius: 8px;
+      padding: 8px 16px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      height: 62px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     .barra-logo img {
-      height: 38px;
+      height: 40px;
       width: auto;
       object-fit: contain;
     }
 
-    /* 2. Barra de Notícias Manuais */
-    .barra-noticias {
-      flex: 1;
-      overflow: hidden;
-      white-space: nowrap;
-      background: rgba(0, 0, 0, 0.15);
-      border-radius: 5px;
-      padding: 8px 0;
-      position: relative;
+    /* Linha Separadora Vertical */
+    .divisor-vertical {
+      width: 1px;
+      height: 45px;
+      background-color: rgba(255, 255, 255, 0.4);
+      margin: 0 5px;
     }
 
-    .texto-noticias {
-      display: inline-block;
-      white-space: nowrap;
-      padding-left: 100%;
-      animation: passarNoticias 30s linear infinite;
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #FFFFFF;
+    /* 2. Data por Extenso */
+    .barra-data {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-right: auto;
     }
 
-    @keyframes passarNoticias {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(-100%, 0); }
+    .dia-semana {
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1;
+      text-transform: capitalize;
+      letter-spacing: -0.5px;
     }
 
-    /* Separadores das notícias */
-    .texto-noticias span {
-      margin: 0 25px;
-      color: #FFFFFF;
-      font-weight: bold;
+    .data-extenso {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #ffffff;
+      margin-top: 3px;
+      opacity: 0.95;
     }
 
-    /* 3. Bloco de Clima São Paulo - SP */
+    /* 3. Clima em São Paulo - SP */
     .barra-clima {
       display: flex;
       align-items: center;
-      gap: 10px;
-      background: rgba(0, 0, 0, 0.15);
-      padding: 6px 14px;
-      border-radius: 8px;
+      gap: 12px;
       color: #ffffff;
-      min-width: 150px;
+    }
+
+    .clima-icone-dot {
+      width: 18px;
+      height: 18px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .clima-detalhes {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     .clima-temp {
-      font-size: 1.3rem;
-      font-weight: bold;
+      font-size: 2.1rem;
+      font-weight: 800;
       color: #ffffff;
+      line-height: 1;
+      letter-spacing: -1px;
     }
 
-    .clima-info {
-      display: flex;
-      flex-direction: column;
-      font-size: 0.75rem;
-      line-height: 1.1;
+    .clima-cidade {
+      font-size: 0.8rem;
+      font-weight: 600;
       color: #ffffff;
-      font-weight: bold;
+      margin-top: 2px;
+      opacity: 0.95;
     }
 
-    .clima-info span {
-      color: #000000;
-      font-weight: bold;
-    }
-
-    /* 4. Data e Hora */
-    .barra-relogio {
+    /* 4. Relógio Digital HH:MM */
+    .barra-hora {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
-      min-width: 90px;
-      font-size: 0.85rem;
-      color: #000000;
-      font-weight: bold;
+      padding-left: 5px;
     }
 
     #relogio-hora {
-      font-size: 1.2rem;
+      font-size: 2.7rem;
+      font-weight: 900;
       color: #ffffff;
+      line-height: 1;
+      letter-spacing: -1px;
     }
   </style>
 </head>
@@ -170,37 +181,38 @@
     </div>
   </div>
 
-  <!-- BARRA INFERIOR COMPLETA -->
+  <!-- BARRA INFERIOR NOVO LAYOUT -->
   <footer class="barra-inferior">
     
-    <!-- LOGO DO COLÉGIO COM FUNDO BRANCO -->
+    <!-- LOGO DO COLÉGIO -->
     <div class="barra-logo">
       <img src="https://d24d7vsshzrslo.cloudfront.net/sites/school10/files/2022-09/logo_escola_eleva.png" alt="Logo Colégio">
     </div>
 
-    <!-- NOTÍCIAS MANUAIS -->
-    <div class="barra-noticias">
-      <div class="texto-noticias">
-        <span>●</span> Bem-vindos ao ano letivo!
-        <span>●</span> Arts Fest: confira as datas na recepção
-        <span>●</span> Reunião de pais na próxima sexta-feira às 18h
-        <span>●</span> Mantenha a carteirinha sempre em mãos
-      </div>
+    <!-- DIVISOR VERTICAL 1 -->
+    <div class="divisor-vertical"></div>
+
+    <!-- DATA (DIA DA SEMANA + DATA EXTENSO) -->
+    <div class="barra-data">
+      <div class="dia-semana" id="dia-semana">Quarta-Feira</div>
+      <div class="data-extenso" id="data-extenso">4 de novembro de 2026</div>
     </div>
 
-    <!-- CLIMA EM SÃO PAULO SP -->
+    <!-- PREVISÃO DO TEMPO SÃO PAULO - SP -->
     <div class="barra-clima">
-      <div class="clima-temp" id="temp-sp">--°C</div>
-      <div class="clima-info">
-        <div>São Paulo - SP</div>
-        <span id="condicao-sp">Carregando...</span>
+      <span class="clima-icone-dot"></span>
+      <div class="clima-detalhes">
+        <div class="clima-temp" id="temp-sp">32°C</div>
+        <div class="clima-cidade">São Paulo – SP</div>
       </div>
     </div>
 
-    <!-- DATA E HORA -->
-    <div class="barra-relogio">
-      <span id="relogio-hora">00:00:00</span>
-      <span id="relogio-data">00/00/0000</span>
+    <!-- DIVISOR VERTICAL 2 -->
+    <div class="divisor-vertical"></div>
+
+    <!-- HORA APENAS HH:MM -->
+    <div class="barra-hora">
+      <span id="relogio-hora">13:24</span>
     </div>
 
   </footer>
@@ -209,7 +221,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
   
   <script>
-    // Inicialização dos Slides
+    // Configuração do Reveal.js
     Reveal.initialize({
       width: "100%",
       height: "100%",
@@ -223,43 +235,16 @@
       transition: 'slide'
     });
 
-    // Atualização do Relógio e Data
-    function atualizarRelogio() {
+    // Atualização do Relógio e Data por Extenso
+    function atualizarDataHora() {
       const agora = new Date();
       
+      // Hora no formato HH:MM (Sem segundos, igual à imagem)
       const horas = String(agora.getHours()).padStart(2, '0');
       const minutos = String(agora.getMinutes()).padStart(2, '0');
-      const segundos = String(agora.getSeconds()).padStart(2, '0');
-      
-      const dia = String(agora.getDate()).padStart(2, '0');
-      const mes = String(agora.getMonth() + 1).padStart(2, '0');
-      const ano = agora.getFullYear();
+      document.getElementById('relogio-hora').textContent = `${horas}:${minutos}`;
 
-      document.getElementById('relogio-hora').textContent = `${horas}:${minutos}:${segundos}`;
-      document.getElementById('relogio-data').textContent = `${dia}/${mes}/${ano}`;
-    }
-
-    setInterval(atualizarRelogio, 1000);
-    atualizarRelogio();
-
-    // Busca do Clima em São Paulo - SP via API
-    async function carregarClimaSP() {
-      try {
-        const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-23.5505&longitude=-46.6333&current_weather=true');
-        const data = await response.json();
-        
-        const temp = Math.round(data.current_weather.temperature);
-        document.getElementById('temp-sp').textContent = `${temp}°C`;
-        document.getElementById('condicao-sp').textContent = 'Tempo Real';
-      } catch (error) {
-        document.getElementById('temp-sp').textContent = '22°C';
-        document.getElementById('condicao-sp').textContent = 'São Paulo';
-      }
-    }
-
-    carregarClimaSP();
-    setInterval(carregarClimaSP, 600000); // Atualiza o clima a cada 10 minutos
-  </script>
-
-</body>
-</html>
+      // Dia da semana por extenso
+      const diasSemana = [
+        'Domingo', 'Segunda-Feira', 'Terça-Feira', 
+        '
