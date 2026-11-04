@@ -51,7 +51,6 @@
       align-items: center;
       justify-content: space-between;
       z-index: 9999;
-      border-top: 2px solid #e07d06; /* Borda superior num tom ligeiramente mais escuro */
       padding: 0 15px;
       gap: 15px;
     }
@@ -79,7 +78,7 @@
       white-space: nowrap;
       padding-left: 100%;
       animation: passarNoticias 30s linear infinite;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: 600;
       color: #FFFFFF;
     }
@@ -101,15 +100,36 @@
       font-weight: bold;
     }
 
-    /* 3. ClimaTempo */
+    /* 3. Bloco de Clima São Paulo - SP */
     .barra-clima {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.95rem;
+      gap: 10px;
       background: rgba(0, 0, 0, 0.15);
-      padding: 5px 12px;
-      border-radius: 5px;
+      padding: 6px 14px;
+      border-radius: 8px;
+      color: #ffffff;
+      min-width: 150px;
+    }
+
+    .clima-temp {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .clima-info {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.75rem;
+      line-height: 1.1;
+      color: #000000;
+      font-weight: bold;
+    }
+
+    .clima-info span {
+      color: #ffffff;
+      font-weight: normal;
     }
 
     /* 4. Data e Hora */
