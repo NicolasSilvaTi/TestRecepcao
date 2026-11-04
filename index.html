@@ -28,6 +28,105 @@
       margin: 0 !important;
       border: none !important;
       box-shadow: none !important;
+
+      /* Área dos Slides (ocupa a tela menos a altura da barra inferior) */
+    .reveal {
+      width: 100vw !important;
+      height: calc(100vh - 70px) !important;
+    }
+
+    .reveal section img {
+      width: 100vw !important;
+      height: calc(100vh - 70px) !important;
+      object-fit: contain;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    /* BARRA INFERIOR FIXA */
+    .barra-inferior {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      height: 70px;
+      background-color: #111116;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 9999;
+      border-top: 2px solid #0056b3;
+      padding: 0 15px;
+      gap: 15px;
+    }
+
+    /* 1. Logo do Colégio */
+    .barra-logo img {
+      height: 45px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* 2. Barra de Notícias (Passando Notícias Manuais) */
+    .barra-noticias {
+      flex: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 5px;
+      padding: 8px 0;
+      position: relative;
+    }
+
+    .texto-noticias {
+      display: inline-block;
+      white-space: nowrap;
+      padding-left: 100%;
+      animation: passarNoticias 25s linear infinite;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #e0e0e0;
+    }
+
+    @keyframes passarNoticias {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-100%, 0); }
+    }
+
+    /* Separador entre notícias */
+    .texto-noticias span {
+      margin: 0 25px;
+      color: #00a8ff;
+      font-weight: bold;
+    }
+
+    /* 3. ClimaTempo */
+    .barra-clima {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 5px 12px;
+      border-radius: 5px;
+    }
+
+    /* 4. Data e Hora */
+    .barra-relogio {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      min-width: 90px;
+      font-size: 0.85rem;
+      color: #00a8ff;
+      font-weight: bold;
+    }
+
+    #relogio-hora {
+      font-size: 1.2rem;
+      color: #ffffff;
     }
   </style>
 </head>
