@@ -58,8 +58,8 @@
 
     /* 1. Logo do Colégio */
     .barra-logo img {
-      height: 45px;
-      width: auto;
+      height: 65px;
+      width: 65px;
       object-fit: contain;
     }
 
@@ -68,7 +68,7 @@
       flex: 1;
       overflow: hidden;
       white-space: nowrap;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(0, 0, 0, 0.15); /* Fundo escuro transparente para destacar o texto no laranja */
       border-radius: 5px;
       padding: 8px 0;
       position: relative;
@@ -78,10 +78,10 @@
       display: inline-block;
       white-space: nowrap;
       padding-left: 100%;
-      animation: passarNoticias 25s linear infinite;
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: #e0e0e0;
+      animation: passarNoticias 30s linear infinite;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #FFFFFF;
     }
 
     @keyframes passarNoticias {
@@ -89,6 +89,12 @@
       100% { transform: translate(-100%, 0); }
     }
 
+    /* Separadores das notícias */
+    .texto-noticias span {
+      margin: 0 25px;
+      color: #FFFFFF; /* Separador preto para destacar no fundo laranja */
+      font-weight: bold;
+      
     .texto-noticias span {
       margin: 0 25px;
       color: #00a8ff;
@@ -101,7 +107,7 @@
       align-items: center;
       gap: 8px;
       font-size: 0.95rem;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.15);
       padding: 5px 12px;
       border-radius: 5px;
     }
