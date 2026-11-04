@@ -27,17 +27,24 @@
     /* Área dos Slides */
     .reveal {
       width: 100vw !important;
-      height: calc(100vh - 30px) !important;
+      height: calc(100vh - 70px) !important;
     }
 
-    .reveal section img {
+   .reveal section img {
       width: 100vw !important;
-      height: calc(100vh - 45px) !important;
-      object-fit: cover !important;
+      height: calc(100vh - 70px) !important;
+      object-fit: contain;
       border: none !important;
       box-shadow: none !important;
     }
 
+    /* 1. Logo do Colégio */
+    .barra-logo img {
+      height: 45px;
+      width: auto;
+      object-fit: contain;
+    }
+    
     /* BARRA INFERIOR FIXA */
     .barra-inferior {
       position: fixed;
@@ -63,14 +70,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 36px;
+      height: 96px;
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
     }
 
    
     /* 2. Data (Posicionada à esquerda após a logo) */
     .barra-data {
-      font-size: 0.95rem;
+      font-size: 1.6rem;
       color: #ffffff;
       font-weight: bold;
       background: rgba(0, 0, 0, 0);
