@@ -127,6 +127,92 @@
     #relogio-hora {
       font-size: 1.2rem;
       color: #ffffff;
+      <!-- APRESENTAÇÃO DE SLIDES -->
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- SLIDES COM SUAS IMAGENS -->
+      <section><img src="Slide1.PNG" alt="Slide 1"></section>
+      <section><img src="Slide2.PNG" alt="Slide 2"></section>
+
+    </div>
+  </div>
+
+  <!-- BARRA INFERIOR COMPLETA -->
+  <footer class="barra-inferior">
+    
+    <!-- LOGO DO COLÉGIO -->
+    <div class="barra-logo">
+      <img src="https://d24d7vsshzrslo.cloudfront.net/sites/school10/files/2022-09/logo_escola_eleva.png" alt="Logo Colégio">
+    </div>
+
+    <!-- NOTÍCIAS MANUAIS (Edite o texto abaixo para alterar as notícias) -->
+    <div class="barra-noticias">
+      <div class="texto-noticias">
+        <span>●</span> Bem-vindos ao ano letivo!
+        <span>●</span> Arts Fest: confira as datas na recepção
+        <span>●</span> Reunião de pais na próxima sexta-feira às 18h
+        <span>●</span> Mantenha a carteirinha sempre em mãos
+      </div>
+    </div>
+
+    <!-- WIDGET CLIMATEMPO (Iframe compacto) -->
+    <div class="barra-clima">
+      <iframe 
+        src="https://www.climatempo.com.br/widget/acessar/titulo/previsao/id/350/cor/azul" 
+        width="150" 
+        height="50" 
+        frameborder="0" 
+        scrolling="no" 
+        allowtransparency="true">
+      </iframe>
+    </div>
+
+    <!-- DATA E HERA EM TEMPO REAL -->
+    <div class="barra-relogio">
+      <span id="relogio-hora">00:00:00</span>
+      <span id="relogio-data">00/00/0000</span>
+    </div>
+
+  </footer>
+
+  <!-- JS do Reveal.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+  
+  <script>
+    // Inicialização dos Slides
+    Reveal.initialize({
+      width: "100%",
+      height: "100%",
+      margin: 0,
+      minScale: 1,
+      maxScale: 1,
+      autoSlide: 5000,
+      loop: true,
+      controls: false,
+      progress: false,
+      transition: 'fade'
+    });
+
+    // Script para atualizar Relógio e Data em Tempo Real
+    function atualizarRelogio() {
+      const agora = new Date();
+      
+      const horas = String(agora.getHours()).padStart(2, '0');
+      const minutos = String(agora.getMinutes()).padStart(2, '0');
+      const segundos = String(agora.getSeconds()).padStart(2, '0');
+      
+      const dia = String(agora.getDate()).padStart(2, '0');
+      const mes = String(agora.getMonth() + 1).padStart(2, '0');
+      const ano = agora.getFullYear();
+
+      document.getElementById('relogio-hora').textContent = `${horas}:${minutos}:${segundos}`;
+      document.getElementById('relogio-data').textContent = `${dia}/${mes}/${ano}`;
+    }
+
+    setInterval(atualizarRelogio, 1000);
+    atualizarRelogio();
+  </script>
     }
   </style>
 </head>
