@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minha Apresentação</title>
+  <title>Recepção</title>
 
   <!-- Reveal.js CSS (Slides) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
@@ -18,24 +18,19 @@
 
     body, html {
       width: 100%;
-      height: 90%;
+      height: 100%;
       overflow: hidden;
       font-family: 'Ubuntu', sans-serif, system-ui;
       background-color: #000;
     }
 
-    /* Área dos Slides */
+    /* Área dos Slides (Centralizados) */
     .reveal {
       width: 100vw !important;
       height: calc(100vh - 80px) !important;
     }
 
-    .reveal section img {
-      width: 100vw !important;
-      height: calc(100vh - 70px) !important;
-      object-fit: contain;
-      border: none !important;
-      box-shadow: none !important;
+    .reveal .slides section {
       padding: 0 !important;
       display: flex !important;
       align-items: center !important;
@@ -43,18 +38,16 @@
       height: 100% !important;
     }
 
-
-      /* Ajuste da imagem para preencher e centralizar sem estourar */
-.reveal section img {
-  max-width: 100% !important;
-  max-height: calc(100vh - 80px) !important;
-  width: auto !important;
-  height: auto !important;
-  object-fit: contain;
-  margin: auto !important;
-  border: none !important;
-  box-shadow: none !important;
-   }
+    .reveal section img {
+      max-width: 100% !important;
+      max-height: calc(100vh - 80px) !important;
+      width: auto !important;
+      height: auto !important;
+      object-fit: contain;
+      margin: auto !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
 
     /* BARRA INFERIOR FIXA */
     .barra-inferior {
@@ -69,14 +62,14 @@
       align-items: center;
       justify-content: space-between;
       z-index: 9999;
-      padding: 0 20px;
-      gap: 20px;
+      padding: 0 15px;
+      gap: 15px;
     }
 
     /* 1. Container da Logo */
     .barra-logo {
       background-color: #ffffff;
-      padding: 6px 2px;
+      padding: 6px 4px;
       border-radius: 6px;
       display: flex;
       align-items: center;
@@ -97,7 +90,7 @@
       color: #ffffff;
       font-weight: bold;
       background: rgba(0, 0, 0, 0);
-      padding: 6px 12px;
+      padding: 6px 8px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -110,11 +103,11 @@
       font-size: 1.4rem;
     }
 
-  .data-extenso {
-  font-size: 0.95rem;
-  font-weight: 300; 
-  opacity: 0.9;
-   }
+    .data-extenso {
+      font-size: 0.95rem;
+      font-weight: 300;
+      opacity: 0.9;
+    }
 
     /* 3. Barra de Notícias */
     .barra-noticias {
@@ -152,12 +145,11 @@
     .barra-clima {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       background: rgba(0, 0, 0, 0);
-      padding: 0px 0px;
-      border-radius: 2px;
+      padding: 0;
       color: #ffffff;
-      min-width: 60px;
+      min-width: auto;
     }
 
     .clima-temp {
@@ -176,20 +168,19 @@
       opacity: 0.9;
     }
 
-    /* 5. Hora */
+    /* 5. Hora à direita */
     .barra-hora {
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      min-width: 90px;
-      padding: 4px 0px;
+      min-width: auto;
+      padding: 4px 0;
     }
 
     #relogio-hora {
       font-size: 1.8rem;
       font-weight: bold;
       color: #ffffff;
-      padding: 4px 0px;
     }
   </style>
 </head>
@@ -270,11 +261,9 @@
       
       const horas = String(agora.getHours()).padStart(2, '0');
       const minutos = String(agora.getMinutes()).padStart(2, '0');
-      const segundos = String(agora.getSeconds()).padStart(2, '0');
       
       document.getElementById('relogio-hora').textContent = `${horas}:${minutos}`;
 
-      // Formatação dinâmica da data local
       const opcoesDia = { weekday: 'long' };
       const opcoesData = { day: 'numeric', month: 'long', year: 'numeric' };
 
@@ -285,28 +274,29 @@
     setInterval(atualizarRelogioData, 1000);
     atualizarRelogioData();
 
+    // Busca do Clima em São Paulo - SP com timezone exato e sem cache
+    async function carregarClimaSP() {
+      try {
+        const timestamp = Date.now();
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=-23.5505&longitude=-46.6333&current=temperature_2m&timezone=America%2FSao_Paulo&_=${timestamp}`;
+        
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Falha na requisição');
 
-// Busca do Clima em São Paulo - SP em tempo real com fuso horário correto
-async function carregarClimaSP() {
-  try {
-    // Fuso horário explícito de São Paulo e timestamp para evitar cache no navegador
-    const timestamp = Date.now();
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=-23.5505&longitude=-46.6333&current=temperature_2m&timezone=America%2FSao_Paulo&_=${timestamp}`;
-    
-    const response = await fetch(url);
-    if (!response.ok) throw new Error('Falha na requisição');
-
-    const data = await response.json();
-    
-    if (data && data.current && typeof data.current.temperature_2m === 'number') {
-      const temp = Math.round(data.current.temperature_2m);
-      document.getElementById('temp-sp').textContent = `${temp}°C`;
+        const data = await response.json();
+        
+        if (data && data.current && typeof data.current.temperature_2m === 'number') {
+          const temp = Math.round(data.current.temperature_2m);
+          document.getElementById('temp-sp').textContent = `${temp}°C`;
+        }
+      } catch (error) {
+        console.error("Erro ao carregar clima:", error);
+      }
     }
-  } catch (error) {
-    console.error("Erro ao carregar clima:", error);
-  }
 
+    carregarClimaSP();
+    setInterval(carregarClimaSP, 300000); 
   </script>
-  
+
 </body>
 </html>
