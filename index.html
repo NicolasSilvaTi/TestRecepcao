@@ -250,7 +250,7 @@
       const minutos = String(agora.getMinutes()).padStart(2, '0');
       const segundos = String(agora.getSeconds()).padStart(2, '0');
       
-      document.getElementById('relogio-hora').textContent = `${horas}:${minutos}:${segundos}`;
+      document.getElementById('relogio-hora').textContent = `${horas}:${minutos}`;
 
       // Formatação dinâmica da data local
       const opcoesDia = { weekday: 'long' };
