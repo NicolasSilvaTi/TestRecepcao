@@ -30,29 +30,28 @@
       height: calc(100vh - 80px) !important;
     }
 
+    /* Mover a caixa principal de slides do Reveal.js para baixo */
+    .reveal .slides {
+      top: 53% !important; /* Aumente este valor (ex: 55%, 58%) para descer mais */
+    }
+
     .reveal .slides section {
+      padding: 0 !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
       height: 100% !important;
-      padding: 0 !important;
     }
 
      .reveal section img {
       max-width: 100% !important;
-      /* Ajusta a altura máxima para não colidir com a barra inferior ao descer */
-      max-height: calc(100vh - 160px) !important; 
-      width: auto !important;
-      height: auto !important;
+      max-height: calc(100vh - 80px) !important;
+      width: 100% !important;
+      height: 100% !important;
       object-fit: contain;
-      margin: 0 auto !important;
+      margin: auto !important;
       border: none !important;
       box-shadow: none !important;
-
-      /* --- CONTROLE DE POSIÇÃO DA IMAGEM --- */
-      /* Use valor POSITIVO para DESCER (ex: 40px, 60px, 80px) */
-      /* Use valor NEGATIVO para SUBIR (ex: -30px) */
-      transform: translateY(80px) !important;
     }
 
     /* BARRA INFERIOR FIXA */
